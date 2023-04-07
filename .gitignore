@@ -2,3 +2,6 @@
 **/migrations
 *.sqlite3
 *.pyc
+/setup
+README_AWS.txt
+*.db

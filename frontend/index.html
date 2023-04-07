@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Keystroke Authorization</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<header>
+		<h1>Keystroke Authorization</h1>
+	</header>
+
+	<main>
+		<section>
+			<h2>Welcome to my project</h2>
+			<p>You are being invited to take part in a research study. Before you decide whether or not to take part, it
+				is important for you to understand why the research is being done and what it will involve. The aim of
+				this project is to investigate whether keystrokes can be utilized for user authentication and will run
+				till mid-April. You will be asked to type a given sentence a number of times, and your keystroke pattern
+				data will be recorded and analysed.</p>
+			<h3>Will my information be kept confidential?</h3>
+			<p>Any personal data will be kept strictly confidential and securely stored on the researchers system. The
+				keystroke data will be analysed and submitted in a dissertation research paper, with participants
+				anonymity upheld. The data will be deleted after use.</p>
+			<h3>Who has approved this study?</h3>
+			<p>This research has been approved through the School of Engineering and Informatics ethical review process.
+				Application no. ER/OB217/1. If you have any concerns relating to this project please contact Ore Benson
+				at ob217@sussex.ac.uk, or Peter Cheng at p.c.h.cheng@sussex.ac.uk. The University of Sussex has
+				insurance in place to cover its legal liabilities in respect of this study.</p>
+			<p>Thank you for reading, please complete the consent form to continue.</p>
+		</section>
+
+
+		<form id='form'>
+			<ul>
+				<li>
+					<label>
+						I consent to being interviewed by the researcher.
+						<input type="checkbox" required>
+					</label>
+				</li>
+				<li>
+					<label>
+						I agree to making myself available for a further interview should it be required.
+						<input type="checkbox" required>
+					</label>
+				</li>
+				<li>
+					<label>
+						I understand that any information I provide is confidential, and that no information that I
+						disclose
+						will lead to the identification of any individual in the reports on the project, either by the
+						researcher or by any other party.
+						<input type="checkbox" required>
+					</label>
+				</li>
+				<li>
+					<label>
+						I have read the information sheet, had the opportunity to ask questions and I understand the
+						principles,
+						procedures and possible risks involved.
+						<input type="checkbox" required>
+					</label>
+				</li>
+				<li>
+					<label>
+						I understand that my personal data will be used for the purposes of this research study and will
+						be
+						handled in accordance with Data Protection legislation. I understand that the University’s
+						Privacy
+						Notice provides further information on how the University uses personal data in its research.
+						<input type="checkbox" required>
+					</label>
+				</li>
+				<li>
+					<label>
+						I understand that my participation is voluntary, that I can choose not to participate in part or
+						all of
+						the project, and that I can withdraw at any stage of the project without being penalised or
+						disadvantaged in any way.
+						<input type="checkbox" required>
+					</label>
+				</li>
+				<li>
+					<label>
+						I agree to take part in the above University of Sussex research project.
+						<input type="checkbox" required>
+					</label>
+				</li>
+			</ul>
+
+
+			<p>Choose a unique username and password, then type the sentence below 20 or more times at a natural pace. 
+				Only correct characters may be typed, and the data will auto-submit with each complete iteration. 
+				Select "Test" to authorize against existing profile.</p>
+			<input type="text" id="username" placeholder='Username' required />
+			<input type="password" id="password" placeholder='Password' required />
+			<input type="text" id="prompt" value="the quick brown fox jumps over the lazy dog" disabled>
+			<input type="text" id="input" placeholder="Input..." autocomplete="off" required readonly />
+			<span class='types'>
+				<label>
+					<input type="radio" id="train" name="type" checked>
+					Train
+				</label>
+				<label>
+					<input type="radio" id="test" name="type">
+					Test
+				</label>
+				<label>
+					<div id="count">
+						<>
+					</div>
+					Count
+				</label>
+
+			</span>
+			<input type="text" id="feedback" value='' placeholder='Results go here...' disabled>
+		</form>
+
+
+		<!-- <section>
+			<h2>About the project</h2>
+			<p>
+				How it works
+			</p>
+		</section> -->
+	</main>
+
+	<footer>
+		<span>Ore Benson @ 2023</span>
+	</footer>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
