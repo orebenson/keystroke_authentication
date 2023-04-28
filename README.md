@@ -3,7 +3,7 @@
 
 Full-stack keystroke authentication website.
 
-This is a research website, designed to collect keystroke data.
+This is a research website, designed to collect and analyse keystroke data.
 
 ## Activate VE
 > python -m venv .venv
