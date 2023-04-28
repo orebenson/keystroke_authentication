@@ -17,6 +17,7 @@ const keylog = []
 let input = ''
 let count = 0
 
+//Enable input field
 const enableInput = () => {
 	let readOnly = false
 	readOnly ||= usernameField.value.length === 0
@@ -25,6 +26,7 @@ const enableInput = () => {
 	inputField.readOnly = readOnly
 }
 
+//Clear input field
 const resetInput = () => {
 	// console.log('reset')
 	keylog.length = 0
@@ -34,6 +36,7 @@ const resetInput = () => {
 	enableInput()
 }
 
+//Reset counter
 const resetCount = () => {
 	count = 0
 	testCount.innerHTML = count.toString()
@@ -52,6 +55,7 @@ inputField.addEventListener('blur', (event) => {
 	resetInput()
 })
 
+//Only allow input entry if consent form and username and password are filled
 inputField.addEventListener('click', (event) => {
 	if (usernameField.value.length === 0 || passwordField.value.length === 0) {
 		alert('Username and password cannot be empty.')
@@ -66,11 +70,13 @@ inputField.addEventListener('click', (event) => {
 	}
 })
 
+//Run a series of processes on every key press
 inputField.addEventListener('keydown', (event) => {
 	event.preventDefault()
 
 	const { key, timeStamp } = event
 
+	//Check whether the character matches the prompt
 	if (!keysAllowed.has(key)) return
 	if (key !== prompt[input.length]) {
 		inputField.classList.value = 'incorrect'
@@ -79,11 +85,13 @@ inputField.addEventListener('keydown', (event) => {
 		inputField.classList.value = 'correct'
 	}
 
+	//Create a list of keytimes
 	keylog.push(timeStamp)
 	input += key
 
 	inputField.value = input
 
+	//Send submission request once sentence is entered
 	if (input.length === prompt.length) {
 		inputField.readOnly = true
 		inputField.classList.value = 'correct'
@@ -92,12 +100,14 @@ inputField.addEventListener('keydown', (event) => {
 })
 
 
+//Send request to backend, compiling data
 const sendRequest = async (data) => {
 	// console.log(data)
 	// console.log(data.keytimes.length, prompt.length)
 
 	// const URL = "http://localhost:8000/sample/"
 	const URL = "https://keystrokeauth.orebenson.com/sample/"
+	// const URL = "https://3.8.102.0/sample/"
 
 	const response = await fetch(URL, {
 		method: 'POST',
@@ -111,6 +121,7 @@ const sendRequest = async (data) => {
 
 	resetInput()
 
+	//Receive status messages from backend and display to user
 	if (json.status === 'good') {
 		feedbackField.value = json.message
 		feedbackField.className = 'correct'
@@ -120,13 +131,14 @@ const sendRequest = async (data) => {
 	}
 }
 
-
+//Executes submission function on the form
 form.addEventListener('submit', (event) => {
 	event.preventDefault()
 
 	const username = usernameField.value
 	const password = passwordField.value
 	const train = trainField.checked
+	// const train = true
 
 	const firstKey = keylog[0]
 	const keytimes = keylog.map(key => key - firstKey)
