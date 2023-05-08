@@ -5,6 +5,8 @@ Full-stack keystroke authentication website.
 
 This is a research website, designed to collect and analyse keystroke data using various machine learning algorithms.
 
+Full research and report shown in Documentation.pdf.
+
 ## Technologies
 * Python > 3.11.1
 * Matplotlib > 3.7.1
